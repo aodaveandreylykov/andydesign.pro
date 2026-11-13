@@ -46,6 +46,10 @@
 
   function stripHash() {
     if (!location.hash && prettyPath(location.pathname) === location.pathname) return;
+    // Don't strip when the only difference is a trailing slash — removing it shifts the
+    // document base URL and breaks relative-path resolution for lazy images and scripts
+    // when the site is served from a subdirectory (e.g. GitHub Pages /repo-name/).
+    if (!location.hash && prettyPath(location.pathname) + '/' === location.pathname) return;
     history.replaceState(null, '', cleanUrl());
   }
 
