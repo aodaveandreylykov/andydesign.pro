@@ -1239,10 +1239,18 @@ html.i18n-wait body { visibility: hidden; }
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 48px 20px 20px;
-  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+  padding: 56px 20px 22px;
+  background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, transparent 100%);
   margin-top: 0;
   min-height: 0;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.apps-bento__item:hover figcaption {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .apps-bento__item figcaption b {
