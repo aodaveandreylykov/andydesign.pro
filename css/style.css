@@ -674,8 +674,6 @@ html.i18n-wait body { visibility: hidden; }
 .marquee {
   position: relative;
   padding: 28px 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
   overflow: hidden;
   background:
     linear-gradient(90deg, rgba(61, 119, 255, 0.06), rgba(139, 92, 246, 0.06)),
