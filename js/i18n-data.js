@@ -91,7 +91,7 @@ window.ANDY_I18N_EN = {
   "Скачать CV": "Download CV",
   ", а именно:": ", namely:",
   "Бизнес-цель": "Business goal",
-  "Веб сервисы": "Web",
+  "Веб сервисы": "Web Services",
   "Все проекты": "All projects",
   "Направления": "Focus areas",
   "необходимая": "necessary",

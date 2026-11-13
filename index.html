@@ -231,83 +231,73 @@
       </div>
     </section>
 
-    <!-- UI GALLERY (горизонтальный скролл) -->
-    <section class="hscroll" id="ui" data-tab="apps">
-      <div class="hscroll__sticky">
-        <div class="container hscroll__head">
-          <div class="section-head">
-            <h2 class="section-title">Проекты для оценки UI</h2>
-            <div class="seg" role="tablist" aria-label="Тип проектов">
-              <span class="seg__pill" aria-hidden="true"></span>
-              <button type="button" class="seg__btn is-active" role="tab" id="tab-apps" aria-controls="ui-apps" aria-selected="true" data-tab="apps">Приложения</button>
-              <button type="button" class="seg__btn" role="tab" id="tab-web" aria-controls="ui-web" aria-selected="false" data-tab="web">Веб сервисы</button>
-            </div>
-          </div>
-          <div class="hscroll__counter"><span class="js-hs-current">01</span> / <span class="js-hs-total">08</span></div>
+    <!-- APPS -->
+    <section class="apps" id="ui">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title" data-reveal>Приложения</h2>
         </div>
-        <div class="hscroll__stage">
-          <div class="hscroll__track is-active" id="ui-apps" data-tab="apps" role="tabpanel" aria-labelledby="tab-apps">
-            <figure class="shot">
-              <div class="shot__img"><img src="assets/img/frostbyte-m.jpg" width="900" height="1200" alt="Frostbyte — мобильное приложение с вознаграждениями" loading="lazy"></div>
-              <figcaption><b>Frostbyte</b><span>Мобильное приложение с вознаграждениями</span></figcaption>
-            </figure>
-            <figure class="shot">
-              <div class="shot__img"><img src="assets/img/ipool-m.jpg" width="1620" height="2400" alt="iPool — удалённое управление всеми функциями бассейна" loading="lazy"></div>
-              <figcaption><b>iPool</b><span>Удалённое управление всеми функциями бассейна</span></figcaption>
-            </figure>
-            <figure class="shot">
-              <div class="shot__img"><img src="assets/img/ice-m.jpg" width="900" height="1200" alt="ICE — майнинг-приложение, 40M пользователей" loading="lazy"></div>
-              <figcaption><b>ICE</b><span>Майнинг-приложение, 40M пользователей</span></figcaption>
-            </figure>
-            <figure class="shot">
-              <div class="shot__img"><img src="assets/img/hugami-m.jpg" width="1620" height="2400" alt="HugAmi — приложения для медитаций" loading="lazy"></div>
-              <figcaption><b>HugAmi</b><span>Приложения для медитаций</span></figcaption>
-            </figure>
-            <figure class="shot">
-              <div class="shot__img"><img src="assets/img/mysplits-m.jpg" width="1620" height="2400" alt="Mysplits — правильное питание и тренировки" loading="lazy"></div>
-              <figcaption><b>Mysplits</b><span>Правильное питание и тренировки</span></figcaption>
-            </figure>
-            <figure class="shot">
-              <div class="shot__img"><img src="assets/img/homevision-m.jpg" width="1620" height="2400" alt="Homevision — дизайн интерьеров с ИИ" loading="lazy"></div>
-              <figcaption><b>Homevision</b><span>Дизайн интерьеров с ИИ</span></figcaption>
-            </figure>
-            <figure class="shot">
-              <div class="shot__img"><img src="assets/img/hermatic-m.jpg" width="1620" height="2400" alt="Hermatic — автоматизированный трейдинг" loading="lazy"></div>
-              <figcaption><b>Hermatic</b><span>Автоматизированный трейдинг</span></figcaption>
-            </figure>
-            <figure class="shot">
-              <div class="shot__img"><img src="assets/img/framey-m.jpg" width="1620" height="2400" alt="Framey — приложения для путешествий" loading="lazy"></div>
-              <figcaption><b>Framey</b><span>Приложения для путешествий</span></figcaption>
-            </figure>
-          </div>
-          <div class="hscroll__track" id="ui-web" data-tab="web" role="tabpanel" aria-labelledby="tab-web" aria-hidden="true">
-            <figure class="shot">
-              <div class="shot__img"><img src="assets/img/atoma.jpg" width="1338" height="950" alt="Atoma — DeFi-сейф и аналитика позиций" loading="lazy"></div>
-              <figcaption><b>Atoma</b><span>DeFi-сейф и аналитика позиций</span></figcaption>
-            </figure>
-            <figure class="shot">
-              <div class="shot__img"><img src="assets/img/dashboard.jpg" width="1338" height="950" alt="VaultFlow — кабинет депозитов и комплаенса" loading="lazy"></div>
-              <figcaption><b>VaultFlow</b><span>Кабинет депозитов и комплаенса</span></figcaption>
-            </figure>
-            <figure class="shot">
-              <div class="shot__img"><img src="assets/img/broker.jpg" width="1338" height="950" alt="Go Invest — платформа персонального брокера" loading="lazy"></div>
-              <figcaption><b>Go Invest</b><span>Платформа персонального брокера</span></figcaption>
-            </figure>
-            <figure class="shot">
-              <div class="shot__img"><img src="assets/img/finance.jpg" width="1338" height="950" alt="Financier — админка финтеха и контроль доступа" loading="lazy"></div>
-              <figcaption><b>Financier</b><span>Админка финтеха и контроль доступа</span></figcaption>
-            </figure>
-            <figure class="shot">
-              <div class="shot__img"><img src="assets/img/valetax.jpg" width="1338" height="950" alt="Valetax — обучение инвестициям для новичков" loading="lazy"></div>
-              <figcaption><b>Valetax</b><span>Обучение инвестициям для новичков</span></figcaption>
-            </figure>
-            <figure class="shot">
-              <div class="shot__img"><img src="assets/img/cms.jpg" width="1338" height="950" alt="CMS — внутренняя система для управления проектами" loading="lazy"></div>
-              <figcaption><b>CMS</b><span>Внутренняя система для управления проектами</span></figcaption>
-            </figure>
-          </div>
+        <div class="apps__grid">
+          <figure class="shot">
+            <div class="shot__img"><img src="assets/img/frostbyte-m.jpg" width="900" height="1200" alt="Frostbyte — мобильное приложение с вознаграждениями" loading="lazy"></div>
+            <figcaption><b>Frostbyte</b><span>Мобильное приложение с вознаграждениями</span></figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="shot__img"><img src="assets/img/ipool-m.jpg" width="1620" height="2400" alt="iPool — удалённое управление всеми функциями бассейна" loading="lazy"></div>
+            <figcaption><b>iPool</b><span>Удалённое управление всеми функциями бассейна</span></figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="shot__img"><img src="assets/img/ice-m.jpg" width="900" height="1200" alt="ICE — майнинг-приложение, 40M пользователей" loading="lazy"></div>
+            <figcaption><b>ICE</b><span>Майнинг-приложение, 40M пользователей</span></figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="shot__img"><img src="assets/img/hugami-m.jpg" width="1620" height="2400" alt="HugAmi — приложения для медитаций" loading="lazy"></div>
+            <figcaption><b>HugAmi</b><span>Приложения для медитаций</span></figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="shot__img"><img src="assets/img/mysplits-m.jpg" width="1620" height="2400" alt="Mysplits — правильное питание и тренировки" loading="lazy"></div>
+            <figcaption><b>Mysplits</b><span>Правильное питание и тренировки</span></figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="shot__img"><img src="assets/img/homevision-m.jpg" width="1620" height="2400" alt="Homevision — дизайн интерьеров с ИИ" loading="lazy"></div>
+            <figcaption><b>Homevision</b><span>Дизайн интерьеров с ИИ</span></figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="shot__img"><img src="assets/img/hermatic-m.jpg" width="1620" height="2400" alt="Hermatic — автоматизированный трейдинг" loading="lazy"></div>
+            <figcaption><b>Hermatic</b><span>Автоматизированный трейдинг</span></figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="shot__img"><img src="assets/img/framey-m.jpg" width="1620" height="2400" alt="Framey — приложения для путешествий" loading="lazy"></div>
+            <figcaption><b>Framey</b><span>Приложения для путешествий</span></figcaption>
+          </figure>
         </div>
-        <div class="container hscroll__bar"><i class="js-hs-bar"></i></div>
+      </div>
+    </section>
+
+    <!-- WEB SERVICES -->
+    <section class="webservices" id="webservices">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title" data-reveal>Веб сервисы</h2>
+        </div>
+        <div class="concepts__grid">
+          <figure class="shot">
+            <div class="shot__img"><img src="assets/img/atoma.jpg" width="1338" height="950" alt="Atoma — DeFi-сейф и аналитика позиций" loading="lazy"></div>
+            <figcaption><b>Atoma</b><span>DeFi-сейф и аналитика позиций</span></figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="shot__img"><img src="assets/img/dashboard.jpg" width="1338" height="950" alt="VaultFlow — кабинет депозитов и комплаенса" loading="lazy"></div>
+            <figcaption><b>VaultFlow</b><span>Кабинет депозитов и комплаенса</span></figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="shot__img"><img src="assets/img/broker.jpg" width="1338" height="950" alt="Go Invest — платформа персонального брокера" loading="lazy"></div>
+            <figcaption><b>Go Invest</b><span>Платформа персонального брокера</span></figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="shot__img"><img src="assets/img/finance.jpg" width="1338" height="950" alt="Financier — админка финтеха и контроль доступа" loading="lazy"></div>
+            <figcaption><b>Financier</b><span>Админка финтеха и контроль доступа</span></figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 

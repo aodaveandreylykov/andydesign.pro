@@ -387,7 +387,7 @@
   const seg = $('.seg');
   const segPill = $('.seg__pill');
   let hsTrack = $('.hscroll__track.is-active');
-  let shots = $$('.shot', hsTrack);
+  let shots = hsTrack ? $$('.shot', hsTrack) : [];
   let hsDistance = 0;
   let hsSwitching = false;
 
@@ -419,6 +419,7 @@
   }
 
   function sizeHScroll() {
+    if (!hs) return;
     refreshShots();
     lockStageHeight();
     if (!isDesktop()) {
@@ -446,7 +447,7 @@
   }
 
   function updateHScroll() {
-    if (!isDesktop() || hsSwitching) return;
+    if (!hs || !isDesktop() || hsSwitching) return;
     const r = hs.getBoundingClientRect();
     const total = hs.offsetHeight - innerHeight;
     const p = total > 0 ? clamp(-r.top / total, 0, 1) : 0;
@@ -757,7 +758,7 @@
   }
 
   function shotsForLightbox(from) {
-    const root = from.closest('.hscroll__track, .concepts') || document;
+    const root = from.closest('.hscroll__track, .concepts, .apps, .webservices') || document;
     return $$('.shot', root).filter((el) => {
       if (el.classList.contains('shot--soon')) return false;
       const img = $('img', el);

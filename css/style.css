@@ -1178,6 +1178,40 @@ html.i18n-wait body { visibility: hidden; }
   transform: scaleX(0);
 }
 
+/* ---------- Apps grid ---------- */
+.apps { padding: 140px 0 80px; }
+
+.apps__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.apps .shot {
+  width: auto;
+  min-width: 0;
+  flex: none;
+}
+
+.apps .shot__img {
+  aspect-ratio: 9 / 14.4;
+  height: auto;
+}
+
+/* ---------- Web services ---------- */
+.webservices { padding: 0 0 80px; }
+
+.webservices .shot {
+  width: auto;
+  min-width: 0;
+  flex: none;
+}
+
+.webservices .shot__img {
+  aspect-ratio: 1338 / 950;
+  height: auto;
+}
+
 /* ---------- Concepts ---------- */
 .concepts {
   padding: 140px 0 80px;
@@ -1802,6 +1836,7 @@ html.i18n-wait body { visibility: hidden; }
   .chip--1 { left: 0; }
   .card__content { padding: 36px 0 36px 40px; }
   .job__body { padding-left: 0; }
+  .apps__grid { grid-template-columns: repeat(4, 1fr); }
 }
 
 @media (max-width: 900px) {
@@ -1909,6 +1944,12 @@ html.i18n-wait body { visibility: hidden; }
   .e404__cases { grid-template-columns: 1fr; margin-top: 48px; }
 }
 
+/* 650–900 */
+@media (min-width: 650px) and (max-width: 900px) {
+  .apps__grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .concepts__grid { grid-template-columns: 1fr 1fr; }
+}
+
 /* 650–900: карточки проектов как на десктопе — фото справа */
 @media (min-width: 650px) and (max-width: 900px) {
   .card__inner {
@@ -1938,6 +1979,7 @@ html.i18n-wait body { visibility: hidden; }
 
 /* уже 650: фото по центру блока */
 @media (max-width: 649px) {
+  .apps__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .card__inner { grid-template-columns: 1fr; height: auto; min-height: 0; }
   .card__inner::after {
     background: linear-gradient(180deg, rgba(10, 12, 16, 0.8) 0%, rgba(10, 12, 16, 0.5) 55%, rgba(10, 12, 16, 0.1) 100%);
