@@ -234,41 +234,30 @@
     <!-- APPS -->
     <section class="apps" id="ui">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head apps__head">
           <h2 class="section-title" data-reveal>Приложения</h2>
+          <button class="apps__show-all" id="appsShowAll">Показать все</button>
         </div>
-        <div class="apps__grid">
-          <figure class="shot">
+        <div class="apps-bento">
+          <figure class="shot apps-bento__item apps-bento__item--tl">
             <div class="shot__img"><img src="assets/img/frostbyte-m.jpg" width="900" height="1200" alt="Frostbyte — мобильное приложение с вознаграждениями" loading="lazy"></div>
             <figcaption><b>Frostbyte</b><span>Мобильное приложение с вознаграждениями</span></figcaption>
           </figure>
-          <figure class="shot">
+          <figure class="shot apps-bento__item apps-bento__item--c">
             <div class="shot__img"><img src="assets/img/ipool-m.jpg" width="1620" height="2400" alt="iPool — удалённое управление всеми функциями бассейна" loading="lazy"></div>
             <figcaption><b>iPool</b><span>Удалённое управление всеми функциями бассейна</span></figcaption>
           </figure>
-          <figure class="shot">
+          <figure class="shot apps-bento__item apps-bento__item--tr">
             <div class="shot__img"><img src="assets/img/ice-m.jpg" width="900" height="1200" alt="ICE — майнинг-приложение, 40M пользователей" loading="lazy"></div>
             <figcaption><b>ICE</b><span>Майнинг-приложение, 40M пользователей</span></figcaption>
           </figure>
-          <figure class="shot">
+          <figure class="shot apps-bento__item apps-bento__item--bl">
             <div class="shot__img"><img src="assets/img/hugami-m.jpg" width="1620" height="2400" alt="HugAmi — приложения для медитаций" loading="lazy"></div>
             <figcaption><b>HugAmi</b><span>Приложения для медитаций</span></figcaption>
           </figure>
-          <figure class="shot">
+          <figure class="shot apps-bento__item apps-bento__item--br">
             <div class="shot__img"><img src="assets/img/mysplits-m.jpg" width="1620" height="2400" alt="Mysplits — правильное питание и тренировки" loading="lazy"></div>
             <figcaption><b>Mysplits</b><span>Правильное питание и тренировки</span></figcaption>
-          </figure>
-          <figure class="shot">
-            <div class="shot__img"><img src="assets/img/homevision-m.jpg" width="1620" height="2400" alt="Homevision — дизайн интерьеров с ИИ" loading="lazy"></div>
-            <figcaption><b>Homevision</b><span>Дизайн интерьеров с ИИ</span></figcaption>
-          </figure>
-          <figure class="shot">
-            <div class="shot__img"><img src="assets/img/hermatic-m.jpg" width="1620" height="2400" alt="Hermatic — автоматизированный трейдинг" loading="lazy"></div>
-            <figcaption><b>Hermatic</b><span>Автоматизированный трейдинг</span></figcaption>
-          </figure>
-          <figure class="shot">
-            <div class="shot__img"><img src="assets/img/framey-m.jpg" width="1620" height="2400" alt="Framey — приложения для путешествий" loading="lazy"></div>
-            <figcaption><b>Framey</b><span>Приложения для путешествий</span></figcaption>
           </figure>
         </div>
       </div>
@@ -510,6 +499,52 @@
   </div>
 
   <div class="toast" role="status" aria-live="polite"></div>
+
+  <!-- Apps fullscreen modal -->
+  <div class="apps-modal" id="appsModal" role="dialog" aria-modal="true" aria-label="Все приложения" hidden>
+    <div class="apps-modal__header">
+      <span class="apps-modal__title">Приложения</span>
+      <button class="apps-modal__close" id="appsModalClose" aria-label="Закрыть">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M6 6l12 12M6 18L18 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <div class="apps-modal__track">
+      <figure class="shot">
+        <div class="shot__img"><img src="assets/img/frostbyte-m.jpg" width="900" height="1200" alt="Frostbyte — мобильное приложение с вознаграждениями" loading="lazy"></div>
+        <figcaption><b>Frostbyte</b><span>Мобильное приложение с вознаграждениями</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="shot__img"><img src="assets/img/ipool-m.jpg" width="1620" height="2400" alt="iPool — удалённое управление всеми функциями бассейна" loading="lazy"></div>
+        <figcaption><b>iPool</b><span>Удалённое управление всеми функциями бассейна</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="shot__img"><img src="assets/img/ice-m.jpg" width="900" height="1200" alt="ICE — майнинг-приложение, 40M пользователей" loading="lazy"></div>
+        <figcaption><b>ICE</b><span>Майнинг-приложение, 40M пользователей</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="shot__img"><img src="assets/img/hugami-m.jpg" width="1620" height="2400" alt="HugAmi — приложения для медитаций" loading="lazy"></div>
+        <figcaption><b>HugAmi</b><span>Приложения для медитаций</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="shot__img"><img src="assets/img/mysplits-m.jpg" width="1620" height="2400" alt="Mysplits — правильное питание и тренировки" loading="lazy"></div>
+        <figcaption><b>Mysplits</b><span>Правильное питание и тренировки</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="shot__img"><img src="assets/img/homevision-m.jpg" width="1620" height="2400" alt="Homevision — дизайн интерьеров с ИИ" loading="lazy"></div>
+        <figcaption><b>Homevision</b><span>Дизайн интерьеров с ИИ</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="shot__img"><img src="assets/img/hermatic-m.jpg" width="1620" height="2400" alt="Hermatic — автоматизированный трейдинг" loading="lazy"></div>
+        <figcaption><b>Hermatic</b><span>Автоматизированный трейдинг</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="shot__img"><img src="assets/img/framey-m.jpg" width="1620" height="2400" alt="Framey — приложения для путешествий" loading="lazy"></div>
+        <figcaption><b>Framey</b><span>Приложения для путешествий</span></figcaption>
+      </figure>
+    </div>
+  </div>
 
   <script src="js/transition.js" defer></script>
   <script src="js/i18n-data.js" defer></script>

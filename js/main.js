@@ -816,4 +816,26 @@
   });
 
   $('.js-year').textContent = new Date().getFullYear();
+
+  // Apps modal
+  const appsModal = $('#appsModal');
+  const appsShowAll = $('#appsShowAll');
+  const appsModalClose = $('#appsModalClose');
+  if (appsModal && appsShowAll) {
+    function openAppsModal() {
+      appsModal.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      appsModalClose && appsModalClose.focus();
+    }
+    function closeAppsModal() {
+      appsModal.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      appsShowAll.focus();
+    }
+    appsShowAll.addEventListener('click', openAppsModal);
+    appsModalClose && appsModalClose.addEventListener('click', closeAppsModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !appsModal.hasAttribute('hidden')) closeAppsModal();
+    });
+  }
 })();
