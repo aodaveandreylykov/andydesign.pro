@@ -795,12 +795,11 @@ html.i18n-wait body { visibility: hidden; }
   grid-template-columns: 0.9fr 1.1fr;
   align-items: stretch;
   gap: 20px;
-  height: min(400px, 48vh);
+  height: min(480px, 57.6vh);
   min-height: 0;
   border-radius: var(--radius);
   overflow: hidden;
   isolation: isolate;
-  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 -20px 60px -20px rgba(0, 0, 0, 0.6);
   background: var(--bg-2);
 }
@@ -854,7 +853,8 @@ html.i18n-wait body { visibility: hidden; }
 }
 
 .card__text {
-  color: rgba(255, 255, 255, 0.82);
+  color: #ffffff;
+  font-weight: 500;
   font-size: 16px;
   max-width: 400px;
   margin-bottom: 18px;
