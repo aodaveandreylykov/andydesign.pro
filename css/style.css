@@ -1315,23 +1315,24 @@ html.i18n-wait body { visibility: hidden; }
 
 .apps-modal__track {
   flex: 1;
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 40px 48px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
+  columns: 4;
+  column-gap: 16px;
+  padding: 32px 48px 48px;
+  overflow-x: hidden;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
-.apps-modal__track::-webkit-scrollbar { height: 4px; }
+.apps-modal__track::-webkit-scrollbar { width: 4px; }
 .apps-modal__track::-webkit-scrollbar-track { background: transparent; }
 .apps-modal__track::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
 
 .apps-modal__track .shot {
+  break-inside: avoid;
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
   flex: none;
-  width: 220px;
-  scroll-snap-align: start;
+  scroll-snap-align: unset;
 }
 
 .apps-modal__track .shot__img {
