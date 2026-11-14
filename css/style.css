@@ -627,7 +627,7 @@ html.i18n-wait body { visibility: hidden; }
   font-weight: 500;
   white-space: nowrap;
   background: rgba(20, 23, 28, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: none;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.6);
