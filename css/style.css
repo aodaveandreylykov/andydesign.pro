@@ -1341,7 +1341,7 @@ html.i18n-wait body { visibility: hidden; }
 }
 
 /* ---------- Web services ---------- */
-.webservices { padding: 0 0 80px; }
+.webservices { padding: 140px 0 80px; }
 
 .webservices .shot {
   width: auto;
