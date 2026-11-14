@@ -374,7 +374,7 @@ html.i18n-wait body { visibility: hidden; }
   padding: 6px;
   border-radius: 100px;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: none;
   position: relative;
 }
 
