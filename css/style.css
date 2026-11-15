@@ -516,8 +516,7 @@ html.i18n-wait body { visibility: hidden; }
   margin-bottom: 28px;
 }
 
-.hero__title .line { display: block; overflow: hidden; padding-bottom: 0.06em; padding-top: 0.08em; }
-.is-ready .hero__title .line { overflow: visible; }
+.hero__title .line { display: block; overflow: visible; padding-bottom: 0.06em; }
 
 /* split chars */
 .word { display: inline-block; white-space: nowrap; }
@@ -532,6 +531,15 @@ html.i18n-wait body { visibility: hidden; }
 
 .is-ready .hero .char,
 .char.is-in { transform: none; }
+
+/* Hero title: simple fade-in instead of slide */
+.hero__title .char {
+  transform: none;
+  opacity: 0;
+  transition: opacity 0.9s var(--ease-out);
+  transition-delay: calc(var(--ci) * 0.04s + var(--base, 0s));
+}
+.is-ready .hero__title .char { opacity: 1; }
 
 .hero__role {
   display: flex;
