@@ -832,6 +832,7 @@ html.i18n-wait body { visibility: hidden; }
   background: linear-gradient(100deg, rgba(10, 12, 16, 0.82) 0%, rgba(10, 12, 16, 0.45) 45%, rgba(10, 12, 16, 0) 75%);
 }
 
+.card__inner:focus-visible { outline: none; }
 .card__inner:hover .card__bg { transform: scale(1.02); }
 
 .card__content {
