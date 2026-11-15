@@ -588,11 +588,10 @@ html.i18n-wait body { visibility: hidden; }
 
 .hero__visual {
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1;
   max-width: 680px;
   width: 100%;
   justify-self: end;
-  align-self: start;
 }
 
 .hero__glow {
@@ -611,8 +610,8 @@ html.i18n-wait body { visibility: hidden; }
 .hero__photo {
   position: absolute;
   inset: 0;
-  -webkit-mask-image: linear-gradient(to bottom, #000 65%, transparent 95%);
-  mask-image: linear-gradient(to bottom, #000 65%, transparent 95%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 98%);
+  mask-image: linear-gradient(to bottom, #000 72%, transparent 98%);
 }
 
 .hero__photo img { width: 100%; height: 100%; object-fit: contain; }
