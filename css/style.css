@@ -1852,28 +1852,16 @@ html.i18n-wait body { visibility: hidden; }
   inset: 0;
   z-index: 1001;
   pointer-events: none;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  background: var(--bg);
+  opacity: 1;
+  transition: opacity 0.45s ease;
 }
 
-.pt i {
-  display: block;
-  background: var(--bg-2);
-  transform-origin: 50% 0;
-  transform: scaleY(1);
-  transition: transform 0.7s var(--ease-in-out);
-  transition-delay: calc(var(--n) * 0.06s);
-}
+.pt i { display: none; }
 
-.pt i:nth-child(1) { --n: 0; }
-.pt i:nth-child(2) { --n: 1; }
-.pt i:nth-child(3) { --n: 2; }
-.pt i:nth-child(4) { --n: 3; }
-.pt i:nth-child(5) { --n: 4; }
-
-.pt.is-in i { transform: scaleY(0); }
-.pt.is-instant i { transition: none; }
-.pt.is-leave i { transform-origin: 50% 100%; transform: scaleY(1); }
+.pt.is-in { opacity: 0; }
+.pt.is-instant { transition: none; }
+.pt.is-leave { opacity: 1; }
 
 /* ---------- 404 ---------- */
 .e404 {

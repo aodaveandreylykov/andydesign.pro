@@ -136,7 +136,7 @@
 
     pt.classList.remove('is-in');
     pt.classList.add('is-leave');
-    setTimeout(() => { location.href = destPath + url.search; }, 700);
+    setTimeout(() => { location.href = destPath + url.search; }, 450);
   }, true);
 
   addEventListener('pageshow', (e) => {
