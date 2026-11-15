@@ -1559,7 +1559,10 @@ html.i18n-wait body { visibility: hidden; }
 
 /* ---------- Contact ---------- */
 .contact {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
   padding: 160px 0;
   overflow: hidden;
   text-align: center;
@@ -1663,6 +1666,8 @@ html.i18n-wait body { visibility: hidden; }
 
 /* ---------- Footer ---------- */
 .footer {
+  position: relative;
+  z-index: 5;
   padding: 32px 0 0;
   overflow: hidden;
 }
@@ -1683,11 +1688,27 @@ html.i18n-wait body { visibility: hidden; }
   white-space: nowrap;
   margin: 24px 0 0;
   background: linear-gradient(180deg, rgba(255,255,255,0.13) 0%, rgba(255,255,255,0.04) 100%);
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-mask-image: linear-gradient(180deg, black 0%, black 40%, transparent 90%);
   mask-image: linear-gradient(180deg, black 0%, black 40%, transparent 90%);
+  transition: background 0.4s ease;
+  cursor: default;
+}
+
+.footer__big:hover {
+  background: linear-gradient(90deg, #3d77ff 0%, #a855f7 35%, #f97316 65%, #3d77ff 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: andy-gradient 2.5s linear infinite;
+}
+
+@keyframes andy-gradient {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: -200% 0%; }
 }
 
 .footer__grid {
