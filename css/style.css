@@ -911,7 +911,7 @@ html.i18n-wait body { visibility: hidden; }
   transition: transform 0.5s var(--ease-out);
 }
 
-.card__inner:hover .card__media img { transform: scale(1.15); }
+.card__media:hover img { transform: scale(1.08); }
 
 .card__btn {
   pointer-events: none;
