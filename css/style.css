@@ -1520,6 +1520,7 @@ html.i18n-wait body { visibility: hidden; }
   flex-direction: column;
   gap: 20px;
   padding: 0 0 32px 194px;
+  max-width: 60%;
   color: rgba(255, 255, 255, 0.75);
 }
 
@@ -2073,7 +2074,7 @@ html.i18n-wait body { visibility: hidden; }
   .job__role { grid-column: 1; grid-row: 3; text-align: left; font-size: 14px; }
   .job__toggle { grid-column: 2; grid-row: 1 / 4; }
   .job summary:hover { padding-left: 12px; }
-  .job__body { gap: 16px; font-size: 15px; padding: 0 0 24px 12px; }
+  .job__body { gap: 16px; font-size: 15px; padding: 0 0 24px 12px; max-width: 100%; }
 
   .contact { padding: 100px 0; }
   .contact__blob { width: 500px; height: 500px; margin: -250px 0 0 -250px; }
