@@ -273,22 +273,6 @@
     setTimeout(() => prev.classList.remove('is-out'), 650);
   }, 2200);
 
-  /* ---------------------------------------------------------
-     3D-наклон изображений в карточках
-     --------------------------------------------------------- */
-  if (finePointer && !reducedMotion) {
-    $$('.js-tilt').forEach((media) => {
-      const host = media.closest('.card__inner');
-      host.style.perspective = '1200px';
-      host.addEventListener('mousemove', (e) => {
-        const r = media.getBoundingClientRect();
-        const px = (e.clientX - r.left) / r.width - 0.5;
-        const py = (e.clientY - r.top) / r.height - 0.5;
-        media.style.transform = `rotateY(${px * 12}deg) rotateX(${-py * 10}deg)`;
-      });
-      host.addEventListener('mouseleave', () => { media.style.transform = ''; });
-    });
-  }
 
   /* ---------------------------------------------------------
      Canvas: «аврора» в hero
