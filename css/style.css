@@ -219,13 +219,10 @@ ul { list-style: none; }
 .btn--primary {
   background: var(--accent);
   box-shadow: 0 10px 40px -10px rgba(61, 119, 255, 0.8);
-  overflow: visible;
 }
 
-.btn--primary::before {
-  background: #fff;
-  clip-path: inset(0 round 100px);
-}
+.btn--primary::before { background: #fff; }
+.btn--primary:hover { color: var(--bg); box-shadow: 0 16px 50px -10px rgba(61, 119, 255, 0.9); }
 
 @property --glow-a {
   syntax: '<angle>';
@@ -236,7 +233,7 @@ ul { list-style: none; }
 .btn--primary::after {
   content: '';
   position: absolute;
-  inset: -3px;
+  inset: 0;
   border-radius: inherit;
   padding: 3px;
   background: conic-gradient(
@@ -258,7 +255,7 @@ ul { list-style: none; }
 
 .btn--primary:hover::after {
   opacity: 1;
-  animation: glow-border-spin 2s linear infinite;
+  animation: glow-border-spin 4s linear infinite;
 }
 
 @keyframes glow-border-spin {
