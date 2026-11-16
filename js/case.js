@@ -181,7 +181,7 @@
   toc.className = 'toc';
   const tocLabel = (window.AndyI18n && AndyI18n.t) ? AndyI18n.t('Разделы кейса') : 'Разделы кейса';
   toc.setAttribute('aria-label', tocLabel);
-  toc.innerHTML = '<div class="toc__inner"><span class="toc__pill" aria-hidden="true"></span></div>';
+  toc.innerHTML = '<a class="toc__back" href="./" data-home-section="projects" aria-label="Все проекты"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 12H5m0 0 6-6m-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="toc__inner"><span class="toc__pill" aria-hidden="true"></span></div>';
   const tocInner = $('.toc__inner', toc);
   const tocPill = $('.toc__pill', toc);
 
