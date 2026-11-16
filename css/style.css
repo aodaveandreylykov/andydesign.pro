@@ -238,11 +238,12 @@ ul { list-style: none; }
   padding: 3px;
   background: conic-gradient(
     from var(--glow-a),
-    transparent 50%,
-    #f97316 60%,
-    #a855f7 68%,
-    #ffffff 72%,
-    #3d77ff 76%,
+    transparent 48%,
+    #ef4444 56%,
+    #f97316 62%,
+    #22c55e 68%,
+    #3d77ff 73%,
+    #ec4899 78%,
     transparent 86%
   );
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
