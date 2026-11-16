@@ -3,26 +3,24 @@
   'use strict';
 
   const FILES = {
-    ru: 'https://www.dropbox.com/scl/fi/tz5b1p7gqfhq4m2d01whn/_-_-_.pdf?rlkey=va6bunb1asd64kpsn2iarnfaq&st=e85355oj&dl=1',
-    en: 'https://www.dropbox.com/scl/fi/xxtnig7c8jgp63cg6wj4e/Andrey_Lykov_Product_Designer_EN.pdf?rlkey=4306j1wt2yogwtkixwv6d1uc8&st=ldlhzi50&dl=1'
+    ru: { href: 'assets/cv/cv-ru.pdf', name: 'Andrey_Lykov_CV_RU.pdf' },
+    en: { href: 'assets/cv/cv-en.pdf', name: 'Andrey_Lykov_CV_EN.pdf' }
   };
 
   const lang = (window.AndyI18n && AndyI18n.lang === 'en') ? 'en' : 'ru';
-  const href = FILES[lang];
+  const file = FILES[lang];
 
   document.querySelectorAll('.js-cv').forEach((el) => {
     if (el.tagName === 'A') {
-      el.href = href;
-      el.target = '_blank';
-      el.rel = 'noopener';
+      el.href = file.href;
+      el.download = file.name;
       return;
     }
 
     const a = document.createElement('a');
     a.className = el.className;
-    a.href = href;
-    a.target = '_blank';
-    a.rel = 'noopener';
+    a.href = file.href;
+    a.download = file.name;
     if (el.hasAttribute('data-magnetic')) a.setAttribute('data-magnetic', '');
     a.innerHTML = el.innerHTML;
     el.replaceWith(a);
