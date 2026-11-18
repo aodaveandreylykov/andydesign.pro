@@ -325,6 +325,24 @@
 
 .media-stack { display: flex; flex-direction: column; gap: 20px; }
 
+/* ---------- Image placeholders (временно, до загрузки картинок) ---------- */
+.img-ph {
+  width: 100%;
+  background: #fff;
+  border-radius: var(--radius);
+  aspect-ratio: 16 / 9;
+}
+.img-ph--tall { aspect-ratio: 4 / 5; }
+.img-ph--wide { aspect-ratio: 24 / 7; }
+.img-ph-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 649px) {
+  .img-ph-grid { grid-template-columns: 1fr; }
+}
+
 .caption {
   margin-top: 16px;
   font-size: 14px;
