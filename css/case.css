@@ -5,6 +5,7 @@
 .case-flowbot { --c1: #2eca57; --c2: #8ff0a9; --c-glow: rgba(46, 202, 87, 0.35); }
 .case-online { --c1: #2f7bff; --c2: #7fd3e8; --c-glow: rgba(47, 123, 255, 0.35); }
 .case-alike { --c1: #a259f0; --c2: #f0a07b; --c-glow: rgba(162, 89, 240, 0.35); }
+.case-rozie { --c1: #2ec5ca; --c2: #8ff0e9; --c-glow: rgba(46, 197, 202, 0.35); }
 
 .c-grad {
   background: linear-gradient(90deg, var(--c1), var(--c2));
