@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function () {
+      try {
+        var q = new URLSearchParams(location.search).get('lang');
+        var s = localStorage.getItem('ad_lang');
+        if (q === 'en' || (!q && s === 'en')) document.documentElement.classList.add('i18n-wait');
+      } catch (e) {}
+    })();
+  </script>
+  <title>Rozie — кейс · Андрей Лыков</title>
+  <meta name="description" content="Кейс Rozie: как я нашёл причину потери 62% заказов на создании новой заявки и вернул поток продаж.">
+  <meta property="og:title" content="Rozie — кейс Андрея Лыкова">
+  <meta property="og:description" content="Кейс Rozie: как я нашёл причину потери 62% заказов на создании новой заявки и вернул поток продаж.">
+  <link rel="canonical" href="https://andydesign.pro/rozie">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://andydesign.pro/rozie">
+  <meta property="og:site_name" content="ANDY DESIGN">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:image" content="https://andydesign.pro/assets/cases/covers/rozie.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0f1113">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/case.css">
+</head>
+<body class="case-page case-rozie">
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><i></i></div>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="./" class="logo" data-magnetic>
+        <span class="logo__mark">A</span>
+        <span class="logo__text">ANDY DESIGN</span>
+      </a>
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="/" data-home-section="projects" class="nav__link">Проекты</a>
+        <a href="/" data-home-section="concepts" class="nav__link">Концепты</a>
+        <a href="/" data-home-section="experience" class="nav__link">Опыт</a>
+        <a href="#contact" class="nav__link">Контакты</a>
+      </nav>
+      <button type="button" class="btn btn--ghost btn--sm header__cv js-cv" data-magnetic>
+        <span>Скачать CV</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 4v12m0 0 5-5m-5 5-5-5M5 20h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="menu" aria-hidden="true">
+    <nav class="menu__nav">
+      <a href="/" class="menu__link"><i>01</i>Главная</a>
+      <a href="onlineplus" class="menu__link"><i>02</i>Online+</a>
+      <a href="rozie" class="menu__link"><i>03</i>Rozie</a>
+      <a href="flowbot" class="menu__link"><i>04</i>Flow Bot</a>
+      <a href="alike" class="menu__link"><i>05</i>Alike</a>
+    </nav>
+    <div class="menu__foot">
+      <a href="https://t.me/uxuiandrei" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://www.linkedin.com/in/andreylykov" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.behance.net/andreylykov" target="_blank" rel="noopener">Behance</a>
+    </div>
+  </div>
+
+  <main>
+
+    <section class="case-hero">
+      <div class="case-hero__bg" aria-hidden="true"><img src="assets/img/rozie_back.jpg" alt=""></div>
+      <div class="container case-hero__inner">
+        <div class="case-hero__content">
+          <a href="/" data-home-section="projects" class="back" data-hero><span>←</span>Все проекты</a>
+          <div class="case-hero__tags" data-hero><span class="tag">B2B</span><span class="tag">Web</span><span class="tag">UX-аудит</span></div>
+          <h1 class="case-hero__title"><span class="line"><span class="js-split">Rozie</span></span></h1>
+          <p class="case-hero__lead" data-hero>Как я нашёл причину потери 62% заказов на создании новой заявки и вернул поток продаж</p>
+          <div class="case-meta" data-hero><div><span>Моя роль</span><b>Продуктовый дизайнер</b></div><div><span>Тип проекта</span><b>B2B-сервис</b></div><div><span>Домен</span><b>Заказы и заявки</b></div></div>
+        </div>
+        <div class="case-hero__visual" data-hero>
+          <img src="assets/cases/rozie/00-rozie.png" alt="Rozie" width="1980" height="1980" fetchpriority="high">
+        </div>
+      </div>
+    </section>
+
+    <section class="cs" data-rail="О продукте"><div class="container"><div class="cs-head"><span class="cs-label" data-reveal>О продукте</span><h2 class="cs-title" data-reveal>Заявка без&nbsp;потерь на&nbsp;старте</h2></div><div class="cs-body"><div class="cs-content"><div class="intro"><div class="intro__card" data-reveal><div class="intro__num">01</div><h3>Пользователи</h3><p>Клиенты, которые оформляют новую заявку, и&nbsp;менеджеры, обрабатывающие входящий поток заказов.</p></div><div class="intro__card" data-reveal><div class="intro__num">02</div><h3>Что даёт продукт</h3><p>Простой и&nbsp;понятный сценарий создания заявки без&nbsp;лишних шагов, на&nbsp;котором пользователь не&nbsp;теряется и&nbsp;доходит до&nbsp;конца.</p></div><div class="intro__card" data-reveal><div class="intro__num">03</div><h3>Ценность для бизнеса</h3><p>Меньше брошенных заявок на&nbsp;старте&nbsp;— больше заказов, доходящих до&nbsp;обработки и&nbsp;продажи.</p></div></div></div></div></div></section>
+
+    <section class="next">
+      <div class="container">
+        <span class="next__label" data-reveal>Следующий проект</span>
+        <div class="next__grid">
+          <a href="flowbot" class="next__card">
+            <img src="assets/cases/covers/flowbot.jpg" alt="FlowBot" width="1680" height="900" loading="lazy">
+            <div class="next__info"><div><b>FlowBot</b><span>Trading platform</span></div><span class="next__arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          </a>
+          <a href="onlineplus" class="next__card">
+            <img src="assets/cases/covers/onlineplus.jpg" alt="Online+" width="1680" height="900" loading="lazy">
+            <div class="next__info"><div><b>Online+</b><span>Web3 social</span></div><span class="next__arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-cta" id="contact">
+      <div class="contact__blob" aria-hidden="true"></div>
+      <div class="container">
+        <h2 data-reveal>Понравился кейс?<br><span class="c-grad">Обсудим ваш проект</span></h2>
+        <div class="contact__links" data-reveal>
+          <a href="https://t.me/uxuiandrei" class="pill" target="_blank" rel="noopener" data-magnetic>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.8.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.4 13.1 1.7 11.6c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3Z"/></svg>
+            Telegram
+          </a>
+          <a href="https://www.linkedin.com/in/andreylykov" class="pill" target="_blank" rel="noopener" data-magnetic>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11Z"/></svg>
+            LinkedIn
+          </a>
+          <button type="button" class="pill js-copy" data-copy="daveandreylykov@gmail.com" data-magnetic>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Почта
+          </button>
+          <button type="button" class="pill pill--accent js-cv" data-magnetic>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 4v12m0 0 5-5m-5 5-5-5M5 20h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Скачать CV
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <h4>Проекты</h4>
+          <a href="onlineplus">Online+</a>
+          <a href="rozie">Rozie</a>
+          <a href="flowbot">Flow Bot</a>
+          <a href="alike">Alike</a>
+        </div>
+        <div class="footer__col">
+          <h4>Обо мне</h4>
+          <a href="https://www.linkedin.com/in/andreylykov" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.behance.net/andreylykov" target="_blank" rel="noopener">Behance</a>
+          <a href="https://t.me/uxuiandrei" target="_blank" rel="noopener">Telegram</a>
+        </div>
+        <div class="footer__col">
+          <h4>Контакты</h4>
+          <a href="mailto:daveandreylykov@gmail.com">daveandreylykov@gmail.com</a>
+          <a href="tel:+375296031807">+375 29 603-18-07</a>
+        </div>
+        <div class="footer__col footer__col--end">
+          <a href="#top" class="totop" data-magnetic aria-label="Наверх" onclick="event.preventDefault();scrollTo({top:0,behavior:'smooth'})">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 19V5m0 0-6 6m6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span class="js-year">2026</span> Андрей Лыков</span>
+        <nav class="footer__legal" aria-label="Правовая информация">
+          <a href="/privacy">Конфиденциальность</a>
+          <a href="/cookies">Cookies</a>
+          <button type="button" class="footer__cookie-btn js-cookie-settings">Настройки cookie</button>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <div class="lightbox" aria-hidden="true" role="dialog">
+    <button class="lightbox__close" aria-label="Закрыть">×</button>
+    <button class="lightbox__nav lightbox__nav--prev" aria-label="Предыдущее">←</button>
+    <img class="lightbox__img" src="" alt="">
+    <button class="lightbox__nav lightbox__nav--next" aria-label="Следующее">→</button>
+    <div class="lightbox__caption"></div>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/transition.js" defer></script>
+  <script src="js/i18n-data.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/cookies.js" defer></script>
+  <script src="js/cv.js" defer></script>
+  <script src="js/case.js" defer></script>
+</body>
+</html>
