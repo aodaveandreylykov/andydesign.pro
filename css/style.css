@@ -1253,6 +1253,15 @@ html.i18n-wait body { visibility: hidden; }
   color: var(--fg);
 }
 
+@media (max-width: 649px) {
+  .apps__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+  .apps__show-all { align-self: flex-start; }
+}
+
 .apps-bento {
   display: grid;
   grid-template-columns: 1fr 1.5fr 1fr;
