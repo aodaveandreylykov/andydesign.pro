@@ -26,7 +26,7 @@
 *::before,
 *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
 
 body {
   background: var(--bg);
@@ -35,7 +35,7 @@ body {
   font-size: 17px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body.menu-open { overflow: hidden; }
@@ -2057,9 +2057,9 @@ html.i18n-wait body { visibility: hidden; }
   .burger { display: block; }
 
   .hero { padding-top: 110px; }
-  .hero__inner { grid-template-columns: 1fr; gap: 24px; }
+  .hero__inner { grid-template-columns: minmax(0, 1fr); gap: 24px; }
   .hero__visual { order: -1; max-width: 360px; justify-self: center; }
-  .hero__content { text-align: left; }
+  .hero__content { text-align: left; min-width: 0; }
   .chip { font-size: 12px; padding: 8px 12px; opacity: 1; pointer-events: auto; }
   .chip b { font-size: 15px; }
 
