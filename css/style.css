@@ -2193,14 +2193,19 @@ html.i18n-wait body { visibility: hidden; }
   }
 }
 
-/* уже 650: фото по центру блока */
+/* уже 650: каждая фотка в один столбец, одна под другой */
 @media (max-width: 649px) {
-  .apps-bento { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto; height: auto; gap: 10px; }
-  .apps-bento__item--tl { grid-column: 1; grid-row: 1; aspect-ratio: 9 / 14.4; }
-  .apps-bento__item--c  { grid-column: 2; grid-row: 1 / span 2; }
-  .apps-bento__item--tr { display: none; }
-  .apps-bento__item--bl { grid-column: 1; grid-row: 2; aspect-ratio: 9 / 14.4; }
-  .apps-bento__item--br { grid-column: 1 / span 2; grid-row: 3; aspect-ratio: 2 / 1; }
+  .apps-bento { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-rows: auto; height: auto; gap: 12px; }
+  .apps-bento__item--tl,
+  .apps-bento__item--c,
+  .apps-bento__item--tr,
+  .apps-bento__item--bl,
+  .apps-bento__item--br {
+    display: block;
+    grid-column: 1;
+    grid-row: auto;
+    aspect-ratio: 9 / 14.4;
+  }
   .apps-bento__item .shot__img { height: 100%; }
   .card__inner { grid-template-columns: 1fr; height: auto; min-height: 0; }
   .card__inner::after {
