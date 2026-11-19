@@ -1079,7 +1079,7 @@
   .task__row dd { font-size: 16px; }
 
   .jtbd { grid-template-columns: 1fr; }
-  .jtbd__step + .jtbd__step { border-left: 0; border-top: 1px solid var(--border); }
+  .jtbd__step + .jtbd__step { border-left: 0; border-top: 1px solid var(--border); padding-top: 60px; }
   .jtbd__step + .jtbd__step::before { content: '↓'; left: 32px; top: -18px; }
   .jtbd__step p { font-size: 16px; }
 
