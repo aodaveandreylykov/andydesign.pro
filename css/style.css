@@ -952,6 +952,9 @@ html.i18n-wait body { visibility: hidden; }
 
 .card__media:hover img { transform: scale(1.08); }
 
+/* Rozie: фото прижато к низу карточки без отступа */
+.card--rozie .card__media img { object-position: right bottom; }
+
 .card__btn {
   pointer-events: none;
   width: max-content;
