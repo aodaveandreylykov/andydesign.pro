@@ -285,21 +285,88 @@
   /* ---------------------------------------------------------
      Ротатор профессий в hero
      --------------------------------------------------------- */
-  const rotItems = $$('.hero__rotator span');
-  let rotIdx = 0;
+  /* Scramble Text (адаптация DesignBookmark · Scramble Text, тайминги 1:1):
+     каждая буква мелькает случайными глифами и «садится» на нужную — слева
+     направо с лёгкой случайностью, затем следующее слово декодируется поверх. */
   const rotator = $('.hero__rotator');
-  // ширина под самое длинное слово
-  rotator.style.minWidth = Math.max(...rotItems.map((s) => s.scrollWidth)) + 'px';
-  setInterval(() => {
-    const prev = rotItems[rotIdx];
-    rotIdx = (rotIdx + 1) % rotItems.length;
-    const next = rotItems[rotIdx];
-    prev.classList.remove('is-active');
-    prev.classList.add('is-out');
-    next.classList.remove('is-out');
-    next.classList.add('is-active');
-    setTimeout(() => prev.classList.remove('is-out'), 650);
-  }, 2200);
+  if (rotator) {
+    const PHRASES = $$('span', rotator).map((s) => s.textContent.trim()).filter(Boolean);
+    const GLYPHS = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя0123456789#%&*+=/<>';
+    const glyph = () => GLYPHS[(Math.random() * GLYPHS.length) | 0];
+    const HOLD = 2.4, FLICKER = 0.055;
+
+    rotator.textContent = '';
+
+    // запас ширины под самое длинное слово — строка не дёргается
+    const probe = document.createElement('span');
+    probe.style.cssText = 'visibility:hidden;position:absolute;white-space:pre';
+    rotator.appendChild(probe);
+    let maxW = 0;
+    PHRASES.forEach((p) => { probe.textContent = p; maxW = Math.max(maxW, probe.scrollWidth); });
+    probe.remove();
+    rotator.style.minWidth = Math.ceil(maxW) + 'px';
+
+    const caret = document.createElement('span');
+    caret.className = 'caret';
+    caret.setAttribute('aria-hidden', 'true');
+    rotator.appendChild(caret);
+
+    let cells = [], clock = 0, idx = 0, running = false, hold = 0;
+
+    const decode = (text) => {
+      const n = Math.max(text.length, cells.length);
+      while (cells.length < n) {
+        const el = document.createElement('span');
+        el.className = 'c';
+        el.setAttribute('aria-hidden', 'true');
+        rotator.insertBefore(el, caret);
+        cells.push({ el });
+      }
+      cells.forEach((c, i) => {
+        c.to = text[i] ?? '';
+        c.at = clock + 0.18 + i * 0.035 + Math.random() * 0.28;
+        c.tick = 0;
+        c.done = false;
+        c.el.classList.remove('ok');
+      });
+      running = true;
+      rotator.setAttribute('aria-label', text);
+    };
+
+    if (reducedMotion) {
+      rotator.textContent = PHRASES[0];
+      let i = 0;
+      setInterval(() => { i = (i + 1) % PHRASES.length; rotator.textContent = PHRASES[i]; }, 2600);
+    } else {
+      let last = performance.now();
+      const loop = (now) => {
+        const dt = Math.min((now - last) / 1000, 1 / 30); last = now;
+        clock += dt;
+        if (!running && (hold -= dt) <= 0) { idx = (idx + 1) % PHRASES.length; decode(PHRASES[idx]); }
+        if (running) {
+          let left = 0;
+          cells.forEach((c) => {
+            if (c.done) return;
+            if (clock >= c.at) {
+              c.done = true;
+              if (c.to === '') c.el.remove();
+              else { c.el.textContent = c.to; c.el.classList.add('ok'); }
+            } else {
+              left++;
+              if (c.to === ' ') { c.el.textContent = ' '; c.el.classList.add('ok'); }
+              else if (clock >= c.tick) { c.el.textContent = glyph(); c.tick = clock + FLICKER; }
+            }
+          });
+          if (!left) { cells = cells.filter((c) => c.to !== ''); running = false; hold = HOLD; }
+        }
+        caret.style.opacity = (running || (clock * 1.8) % 2 < 1) ? 1 : 0;
+        requestAnimationFrame(loop);
+      };
+      decode(PHRASES[0]);
+      requestAnimationFrame(loop);
+      rotator.addEventListener('pointerenter', () => { if (!running) decode(PHRASES[idx]); });
+    }
+  }
 
 
   /* ---------------------------------------------------------

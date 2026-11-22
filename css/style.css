@@ -567,27 +567,27 @@ html.i18n-wait body { visibility: hidden; }
   margin-bottom: 18px;
 }
 
+/* Scramble Text: роль «декодируется» по буквам. Непосевшие буквы приглушены,
+   посевшие — полный акцент. Моноширинный запас (min-width) задаёт JS. */
 .hero__rotator {
-  position: relative;
   display: inline-block;
-  height: 1.4em;
-  overflow: hidden;
-  min-width: 10ch;
+  white-space: pre;
+  letter-spacing: -0.01em;
   color: var(--accent);
 }
 
-.hero__rotator span {
-  position: absolute;
-  left: 0;
-  top: 0;
-  white-space: nowrap;
-  transform: translateY(100%);
-  opacity: 0;
-  transition: transform 0.6s var(--ease-out), opacity 0.6s;
-}
+.hero__rotator .c { color: color-mix(in srgb, var(--accent) 42%, transparent); }
+.hero__rotator .c.ok { color: var(--accent); }
 
-.hero__rotator span.is-active { transform: none; opacity: 1; }
-.hero__rotator span.is-out { transform: translateY(-100%); opacity: 0; }
+.hero__rotator .caret {
+  display: inline-block;
+  width: 0.5em;
+  height: 1.05em;
+  margin-left: 0.06em;
+  vertical-align: -0.16em;
+  background: var(--accent);
+  border-radius: 2px;
+}
 
 .hero__text {
   max-width: 520px;
