@@ -121,31 +121,6 @@ ul { list-style: none; }
     -webkit-text-fill-color: inherit;
   }
 
-  /* Один градиент на обе строки имени: каждая буква — окно в заливку заголовка. */
-  .hero__title:hover .char {
-    transform: none;
-    background-image: linear-gradient(
-      90deg,
-      var(--accent) 0%,
-      var(--accent-2) 32%,
-      var(--warm) 64%,
-      var(--accent) 100%
-    );
-    background-size: calc(var(--hero-w, 100%) * 2) var(--hero-h, 100%);
-    background-position: var(--hero-x, 0) var(--hero-y, 0);
-    background-repeat: no-repeat;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    animation: heroTitleGrad 5s linear infinite;
-  }
-}
-
-@keyframes heroTitleGrad {
-  to {
-    background-position: calc(var(--hero-x, 0px) - var(--hero-w, 0px)) var(--hero-y, 0px);
-  }
 }
 
 /* ---------- Grain + progress ---------- */
@@ -575,8 +550,10 @@ html.i18n-wait body { visibility: hidden; }
 .hero__title .char {
   transform: none;
   opacity: 0;
+  font-variation-settings: 'wght' 600;
   transition: opacity 0.9s var(--ease-out);
   transition-delay: calc(var(--ci) * 0.04s + var(--base, 0s));
+  will-change: font-variation-settings;
 }
 .is-ready .hero__title .char { opacity: 1; }
 

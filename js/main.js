@@ -58,21 +58,49 @@
     splitChars(el, 0.15 + i * 0.18);
   });
 
+  /* Weight Wave: волна насыщенности шрифта по буквам имени вслед за курсором.
+     Пружина --spring-settle (280 22) из Motion Studies — посадка на значение
+     с одним небольшим перелётом; интегратор как в shared/motion.js. */
   const heroTitle = $('.hero__title');
-  function syncHeroTitlePaint() {
-    if (!heroTitle) return;
-    const box = heroTitle.getBoundingClientRect();
-    heroTitle.style.setProperty('--hero-w', box.width + 'px');
-    heroTitle.style.setProperty('--hero-h', box.height + 'px');
-    $$('.char', heroTitle).forEach((c) => {
-      const r = c.getBoundingClientRect();
-      c.style.setProperty('--hero-x', (box.left - r.left) + 'px');
-      c.style.setProperty('--hero-y', (box.top - r.top) + 'px');
-    });
-  }
-  if (heroTitle) {
-    heroTitle.addEventListener('mouseenter', syncHeroTitlePaint);
-    addEventListener('resize', syncHeroTitlePaint);
+  if (heroTitle && finePointer && !reducedMotion) {
+    const chars = $$('.char', heroTitle);
+    const REST = 600, PEAK = 900, RADIUS = 130;
+    const K = 280, C = 22;
+    const springs = chars.map(() => ({ x: REST, v: 0, t: REST }));
+    let px = null, raf = null, last = 0;
+
+    const retarget = () => {
+      for (let i = 0; i < chars.length; i++) {
+        if (px == null) { springs[i].t = REST; continue; }
+        const r = chars[i].getBoundingClientRect();
+        const d = Math.abs(r.left + r.width / 2 - px);
+        const infl = d < RADIUS ? 0.5 * (1 + Math.cos(Math.PI * d / RADIUS)) : 0;
+        springs[i].t = REST + (PEAK - REST) * infl;
+      }
+    };
+
+    const frame = (now) => {
+      const dt = Math.min((now - last) / 1000, 1 / 30); last = now;
+      const h = dt / 4;
+      let moving = false;
+      for (let s = 0; s < 4; s++) {
+        for (let i = 0; i < springs.length; i++) {
+          const sp = springs[i];
+          sp.v += (-K * (sp.x - sp.t) - C * sp.v) * h;
+          sp.x += sp.v * h;
+        }
+      }
+      for (let i = 0; i < chars.length; i++) {
+        chars[i].style.fontVariationSettings = "'wght' " + springs[i].x.toFixed(1);
+        if (Math.abs(springs[i].x - springs[i].t) > 0.4 || Math.abs(springs[i].v) > 0.4) moving = true;
+      }
+      raf = (moving || px != null) ? requestAnimationFrame(frame) : null;
+    };
+
+    const run = () => { if (raf == null) { last = performance.now(); raf = requestAnimationFrame(frame); } };
+
+    heroTitle.addEventListener('pointermove', (e) => { px = e.clientX; retarget(); run(); });
+    heroTitle.addEventListener('pointerleave', () => { px = null; retarget(); run(); });
   }
 
   $$('.js-split-scroll').forEach((el) => {
