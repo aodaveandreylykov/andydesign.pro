@@ -46,69 +46,16 @@
     return $$('.char', el);
   }
 
-  function flowChars(chars) {
-    const n = chars.length;
-    chars.forEach((c, i) => {
-      c.style.setProperty('--flow-pos', n > 1 ? `${(i / (n - 1)) * 100}%` : '0%');
-      c.style.setProperty('--flow-size', `${n * 200}%`);
-    });
-  }
-
   $$('.hero .js-split').forEach((el, i) => {
     splitChars(el, 0.15 + i * 0.18);
   });
 
-  /* Weight Wave: волна насыщенности шрифта по буквам имени вслед за курсором.
-     Пружина --spring-settle (280 22) из Motion Studies — посадка на значение
-     с одним небольшим перелётом; интегратор как в shared/motion.js. */
-  const heroTitle = $('.hero__title');
-  if (heroTitle && finePointer && !reducedMotion) {
-    const chars = $$('.char', heroTitle);
-    const REST = 600, PEAK = 900, RADIUS = 130;
-    const K = 280, C = 22;
-    const springs = chars.map(() => ({ x: REST, v: 0, t: REST }));
-    let px = null, raf = null, last = 0;
-
-    const retarget = () => {
-      for (let i = 0; i < chars.length; i++) {
-        if (px == null) { springs[i].t = REST; continue; }
-        const r = chars[i].getBoundingClientRect();
-        const d = Math.abs(r.left + r.width / 2 - px);
-        const infl = d < RADIUS ? 0.5 * (1 + Math.cos(Math.PI * d / RADIUS)) : 0;
-        springs[i].t = REST + (PEAK - REST) * infl;
-      }
-    };
-
-    const frame = (now) => {
-      const dt = Math.min((now - last) / 1000, 1 / 30); last = now;
-      const h = dt / 4;
-      let moving = false;
-      for (let s = 0; s < 4; s++) {
-        for (let i = 0; i < springs.length; i++) {
-          const sp = springs[i];
-          sp.v += (-K * (sp.x - sp.t) - C * sp.v) * h;
-          sp.x += sp.v * h;
-        }
-      }
-      for (let i = 0; i < chars.length; i++) {
-        chars[i].style.fontVariationSettings = "'wght' " + springs[i].x.toFixed(1);
-        if (Math.abs(springs[i].x - springs[i].t) > 0.4 || Math.abs(springs[i].v) > 0.4) moving = true;
-      }
-      raf = (moving || px != null) ? requestAnimationFrame(frame) : null;
-    };
-
-    const run = () => { if (raf == null) { last = performance.now(); raf = requestAnimationFrame(frame); } };
-
-    heroTitle.addEventListener('pointermove', (e) => { px = e.clientX; retarget(); run(); });
-    heroTitle.addEventListener('pointerleave', () => { px = null; retarget(); run(); });
-  }
+  // Weight Wave (волна веса по буквам вслед за курсором) для всех заголовков
+  // живёт в js/wave.js — единый эффект на всех страницах.
 
   $$('.js-split-scroll').forEach((el) => {
     splitChars(el);
   });
-
-  const contactTitle = $('.contact__title');
-  if (contactTitle) flowChars($$('.char', contactTitle));
 
   // двойной rAF: первый кадр рисуется без is-ready, иначе анимации появления не запустятся
   requestAnimationFrame(() => requestAnimationFrame(() => body.classList.add('is-ready')));

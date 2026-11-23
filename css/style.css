@@ -64,10 +64,6 @@ ul { list-style: none; }
   color: inherit;
 }
 
-@keyframes gradientShift {
-  to { background-position: 200% center; }
-}
-
 /* Крупные заголовки: чисто белые, переливающийся градиент только при ховере.
    Градиент вешаем на сам заголовок (как у «Концепты»), а не на каждую букву —
    иначе split-символы получают свой градиент и перелив ломается. */
@@ -91,37 +87,9 @@ ul { list-style: none; }
   background: none;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .section-title:hover,
-  .case-hero__title:hover,
-  .e404__title:hover {
-    background-image: linear-gradient(
-      90deg,
-      var(--accent) 0%,
-      var(--accent-2) 32%,
-      var(--warm) 64%,
-      var(--accent) 100%
-    );
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    animation: gradientShift 5s linear infinite;
-  }
-
-  /* inline-block у .char ломает background-clip родителя — на ховере
-     собираем буквы обратно в текст, чтобы перелив шёл по всему имени */
-  .case-hero__title:hover .word,
-  .case-hero__title:hover .char {
-    display: inline;
-    transform: none;
-    background: none;
-    color: inherit;
-    -webkit-text-fill-color: inherit;
-  }
-
-}
+/* Эффект заголовков — единый «Weight Wave» (волна веса букв за курсором),
+   реализован в js/wave.js. Прежний градиентный перелив по ховеру убран,
+   чтобы все заголовки вели себя как имя «Андрей Лыков». */
 
 /* ---------- Grain + progress ---------- */
 .grain {
@@ -556,6 +524,15 @@ html.i18n-wait body { visibility: hidden; }
   will-change: font-variation-settings;
 }
 .is-ready .hero__title .char { opacity: 1; }
+
+/* Заголовки, которые сплитятся «на месте» (wave.js): буквы видимы сразу,
+   появление секции — через родительский [data-reveal]; базовый .char имеет
+   transform: translateY(110%) для слайд-эффекта — здесь его гасим. */
+.section-title .char,
+.e404__title .char {
+  transform: none;
+  font-variation-settings: 'wght' 600;
+}
 
 .hero__role {
   display: flex;
@@ -1639,32 +1616,8 @@ html.i18n-wait body { visibility: hidden; }
   transition-delay: 0s;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .contact__title:hover .char {
-    background-image: linear-gradient(
-      90deg,
-      var(--accent) 0%,
-      var(--accent-2) 32%,
-      var(--warm) 64%,
-      var(--accent) 100%
-    );
-    background-size: var(--flow-size, 200%) 100%;
-    background-position: var(--flow-pos, 0%) 0;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    animation: contactFlow 5s linear infinite;
-  }
-
-  .contact__title .char.is-in:hover {
-    transform: translateY(-8%);
-  }
-}
-
-@keyframes contactFlow {
-  to { background-position: calc(var(--flow-pos, 0%) + 200%) 0; }
-}
+/* Эффект контактного заголовка — общий «Weight Wave» (js/wave.js);
+   прежний градиентный перелив по ховеру убран для единообразия. */
 
 .contact__links {
   display: flex;

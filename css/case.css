@@ -203,6 +203,13 @@
   overflow-wrap: break-word;
 }
 
+/* Заголовки секций кейса сплитятся «на месте» (js/wave.js): буквы видимы
+   сразу, появление — через родительский [data-reveal]; гасим слайд .char. */
+.cs-title .char {
+  transform: none;
+  font-variation-settings: 'wght' 600;
+}
+
 .cs-body {
   display: grid;
   grid-template-columns: 280px 1fr;
