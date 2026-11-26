@@ -828,6 +828,39 @@ html.i18n-wait body { visibility: hidden; }
 .card__inner:focus-visible { outline: none; }
 .card__inner:hover .card__bg { transform: scale(1.02); }
 
+/* Hover-beam: цветная линия по рамке карточки при наведении */
+@property --beam-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+
+.card__inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(from var(--beam-angle),
+    transparent 0deg 60deg,
+    #a855f7 118deg,
+    #3b82f6 158deg,
+    #ec4899 198deg,
+    transparent 256deg 360deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.card__inner:hover::before { opacity: 1; animation: beam-spin 3.5s linear infinite; }
+
+@keyframes beam-spin { to { --beam-angle: 360deg; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .card__inner:hover::before { animation: none; }
+}
+
 .card__content {
   display: flex;
   flex-direction: column;

@@ -313,11 +313,35 @@
   height: auto;
   display: block;
   transform: scale(1.15);
-  transition: transform 1.8s var(--ease-out);
+  transition: transform 1.8s var(--ease-out), opacity 0.6s ease;
 }
 
 .media.is-in img,
 .media.is-in video { transform: scale(1); }
+
+/* Скелетон-загрузка: shimmer, пока картинка грузится (важно на слабом интернете).
+   По умолчанию выключен — если JS не сработал, картинки видны как обычно. */
+.media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(100deg, var(--bg-2) 28%, rgba(255, 255, 255, 0.07) 50%, var(--bg-2) 72%);
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.media.is-loading::after { opacity: 1; animation: media-shimmer 1.5s linear infinite; }
+.media.is-loading img,
+.media.is-loading video { opacity: 0; }
+
+@keyframes media-shimmer { to { background-position: -200% 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .media.is-loading::after { animation: none; }
+}
 
 .media[data-zoom] { cursor: zoom-in; }
 
@@ -431,6 +455,48 @@
 }
 
 .icard__effect b { color: var(--c2); font-weight: 600; }
+
+/* ---------- Hover-beam: цветная линия по рамке при наведении ---------- */
+@property --beam-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+
+.icard::after,
+.intro__card::after,
+.result::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(from var(--beam-angle),
+    transparent 0deg 60deg,
+    #a855f7 118deg,
+    #3b82f6 158deg,
+    #ec4899 198deg,
+    transparent 256deg 360deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.icard:hover::after,
+.intro__card:hover::after,
+.result:hover::after {
+  opacity: 1;
+  animation: beam-spin 3.5s linear infinite;
+}
+
+@keyframes beam-spin { to { --beam-angle: 360deg; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .icard:hover::after,
+  .intro__card:hover::after,
+  .result:hover::after { animation: none; }
+}
 
 /* ---------- Audit ---------- */
 .audit {

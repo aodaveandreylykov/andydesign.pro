@@ -100,6 +100,17 @@
 
   $$('[data-reveal], .media, .jtbd, .bigstat').forEach((el) => revealObserver.observe(el));
 
+  /* ---------- Скелетон-загрузка картинок (для слабого интернета) ---------- */
+  $$('.media').forEach((m) => {
+    const media = $('img', m) || $('video', m);
+    if (!media || media.tagName !== 'IMG') return;
+    if (media.complete && media.naturalWidth) return; // уже в кеше — без заглушки
+    m.classList.add('is-loading');
+    const done = () => m.classList.remove('is-loading');
+    media.addEventListener('load', done, { once: true });
+    media.addEventListener('error', done, { once: true });
+  });
+
   /* ---------- Counters ---------- */
   const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
