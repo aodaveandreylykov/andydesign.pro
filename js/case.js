@@ -120,7 +120,7 @@
   $$('.js-counter').forEach((el) => counterObserver.observe(el));
 
   /* ---------- Подсветка карточек за курсором ---------- */
-  $$('.intro__card').forEach((el) => {
+  $$('.intro__card, .audit__card').forEach((el) => {
     el.addEventListener('mousemove', (e) => {
       const r = el.getBoundingClientRect();
       el.style.setProperty('--mx', e.clientX - r.left + 'px');
