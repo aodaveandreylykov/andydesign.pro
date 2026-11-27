@@ -784,7 +784,7 @@
   }
 
   function shotsForLightbox(from) {
-    const root = from.closest('.hscroll__track, .concepts, .apps, .webservices') || document;
+    const root = from.closest('.hscroll__track, .concepts, .apps, .feed, .webservices') || document;
     return $$('.shot', root).filter((el) => {
       if (el.classList.contains('shot--soon')) return false;
       const img = $('img', el);

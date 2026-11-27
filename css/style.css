@@ -1309,6 +1309,92 @@ html.i18n-wait body { visibility: hidden; }
   color: rgba(255,255,255,0.65);
 }
 
+/* ---------- Лента: приложения + веб-сервисы (Pinterest-masonry) ---------- */
+/* Десктоп: 3 колонки-стопки одинаковой высоты, низ выравнивается в одну линию;
+   недостающую высоту добирает пустой слот под будущий проект. */
+.feed__grid {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+}
+
+.feed__col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.feed__fill {
+  flex: 1 1 auto;
+  min-height: 150px;
+  border-radius: 20px;
+  border: 1.5px dashed rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+}
+.feed__fill span {
+  color: rgba(255, 255, 255, 0.32);
+  font-size: 13px;
+  letter-spacing: 0.01em;
+}
+
+/* Планшет/мобайл: колонки растворяются, лента течёт masonry'ем, слоты скрыты */
+@media (max-width: 900px) {
+  .feed__grid { display: block; column-count: 2; column-gap: 16px; }
+  .feed__col { display: contents; }
+  .feed__fill { display: none; }
+}
+@media (max-width: 560px) { .feed__grid { column-count: 1; } }
+
+.feed__grid .shot {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 0 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+}
+
+.feed__grid .shot__img {
+  aspect-ratio: auto;
+  height: auto;
+  border-radius: 0;
+  border: none;
+}
+
+.feed__grid .shot__img img {
+  position: static;
+  width: 100%;
+  height: auto;
+}
+
+/* подпись поверх фото, проявляется по ховеру */
+.feed__grid figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  margin: 0;
+  min-height: 0;
+  gap: 4px;
+  padding: 52px 20px 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, transparent 100%);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.feed__grid .shot:hover figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+.feed__grid figcaption b { font-size: 17px; color: #fff; }
+.feed__grid figcaption span { font-size: 13px; color: rgba(255,255,255,0.7); }
+
 /* ---------- Apps modal ---------- */
 .apps-modal {
   position: fixed;
